@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Url Shortener</title>
     <style>
+        body{
+            background: linear-gradient(to right, black, grey, blue);
+        }
       div {
         width: 50%;
         height: 50%;
-        background-color: azure;
         display: block;
         margin: auto;
         position: relative;
@@ -60,13 +62,13 @@
       const original = urlRedirector(short);
       console.log(short);
       console.log(original);
-      alert(short);
+      alert("The shortened url is:  "+short);
       const disp = () => {
         const short = urlShortener(url);
         const original = urlRedirector(short);
         console.log(short);
         console.log(original);
-        alert(short);
+      alert("The shortened url is:  "+short);
       };
 
 
