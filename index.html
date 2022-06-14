@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortener</title>
+    <style>
+      div {
+        width: 50%;
+        height: 50%;
+        background-color: azure;
+        display: block;
+        margin: auto;
+        position: relative;
+        top: 20%;
+      }
+      h1 {
+        text-align: center;
+        font: "calibri";
+      }
+      button {
+        background-color: blueviolet;
+        color: whitesmoke;
+        width: 100%;
+        padding: 1rem;
+        margin: auto;
+        height: max-content;
+        border: 1px black dashed;
+        border-radius: 1rem;
+        text-align: center;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>URL Shortener</h1>
+      <button onclick="location.reload()">Shorten URL</button>
+    </div>
+    <script>
+      const url = window.prompt("Enter url here:");
+      const obj = {};
+      const urlShortener = (longURL = "") => {
+        let shortURL =
+          "myt.lb/" +
+          longURL
+            .toString()
+            .replace(/[^a-z]/g, "")
+            .slice(-6);
+        if (!obj[shortURL]) {
+          obj[shortURL] = longURL;
+        }
+        return shortURL;
+      };
+      const urlRedirector = (shortURL = "") => {
+        return obj[shortURL];
+      };
+      const short = urlShortener(url);
+      const original = urlRedirector(short);
+      console.log(short);
+      console.log(original);
+      alert(short);
+      const disp = () => {
+        const short = urlShortener(url);
+        const original = urlRedirector(short);
+        console.log(short);
+        console.log(original);
+        alert(short);
+      };
+
+
+    </script>
+  </body>
+</html>
